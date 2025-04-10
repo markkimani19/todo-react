@@ -2,17 +2,30 @@ import Button from './Button';
 import Input from './Input';
 
 const TaskItem = ({ task }) => {
+ HEAD
+
+	const { completed, title } = task;
+
+	function handleClick(taskName) {
+		alert(`The clicked task is: ${taskName}`);
+	}
+
+ upstream/main
 	return (
 		<div className="task">
 			<Input
 				type="checkbox"
 				className="checkbox"
-				checked={task.completed === true}
+				checked={completed === true}
+				onChange={() => console.log('Hi')}
 			/>
 
-			<span>{task.title}</span>
+			<span>{title}</span>
 
-			<Button buttonClass="delete-button">
+ HEAD
+			<Button buttonClass="delete-button"></Button>
+			<Button buttonClass="delete-button" onClick={() => handleClick(title)}>
+ upstream/main
 				<i className="fa-solid fa-trash"></i>
 			</Button>
 		</div>
